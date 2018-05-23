@@ -1,0 +1,32 @@
+version: "2"
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ../webapp:/www
+            - ./site.conf:/etc/nginx/conf.d/site.conf
+        depends_on: 
+            - mysql
+            - php
+    php:
+        build: .
+        image: php:7-fpm
+        ports:
+            - "9000:9000"
+        volumes:
+            - ../webapp:/www
+        depends_on:
+            - mysql
+    mysql:
+        image: mysql:latest
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./docker.cnf:/etc/mysql/conf.d/docker.cnf
+        environment:
+            MYSQL_ROOT_PASSWORD: welcome
+            MYSQL_DATABASE: ti4hud
+            MYSQL_USER: ti4hud
+            MYSQL_PASWORD: welcome
