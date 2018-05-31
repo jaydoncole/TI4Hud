@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./bootstrap.php"
+         backupGlobals="true"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         syntaxCheck="true"
+         verbose="true"
+         strict="true"
+         timeoutForSmallTests="1"
+         timeoutForMediumTests="5"
+         timeoutForLargeTests="10"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false">
+    <php>
+        <ini name="memory_limit" value="2048M"/>
+    </php>
+    <testsuite name="TI4Hud Test Suite">
+        <directory suffix="Test.php">./tests</directory>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./controllers</directory>
+        </whitelist>
+    </filter>
+</phpunit>
