@@ -1,11 +1,13 @@
 <?php
+define('ROOT_PATH', dirname(__FILE__));
+
 function __LoadClass($sClass)
 {
     $paths = array(
         '',
         'src' . DIRECTORY_SEPARATOR,
         'tests' . DIRECTORY_SEPARATOR,
-        'controllers' . DIRECTORY_SEPERATOR
+        'controllers' . DIRECTORY_SEPARATOR
     );
 
     foreach ($paths as $path) {

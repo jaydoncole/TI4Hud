@@ -14,7 +14,7 @@ services:
         build: .
         image: php:7-fpm
         ports:
-            - "9000:9000"
+            - "9080:9000"
         volumes:
             - ../webapp:/www
         depends_on:
